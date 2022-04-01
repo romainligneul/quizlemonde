@@ -4,9 +4,10 @@ Version du quiz utilisée: https://www.lemonde.fr/les-decodeurs/article/2022/03/
 
 Le script lemonde_analyse.m extrait les informations du quiz et simule un grand nombre de réponses aléatoires pour évaluer l'équilibre du test.
 Cette analyse peut se faire sur la base des 20 premières questions ou du quiz entier, en corrigeant ou non pour le nombre d'affectations possibles par candidats.
-Le script lemonde_plot.m crée les figures.
+Le script lemonde_plot.m crée les figures. Les barres d'erreur indiquent les intervalles de confiance à 95%.
 
-Le but de ces analyses est de montrer qu'aucune version du quiz n'est équilibrée.
+Le but de ces analyses est de montrer qu'aucune version du quiz n'est équilibrée. 
+Il y a deux facteurs en jeu. Premièrement, tous les candidats n'ont pas le même nombre d'affectations possibles, ce qui diminue mécaniquement le nombre de points qu'ils peuvent se voir attribuent. Deuxièmement, même lorsque l'on corrige pour le nombre d'affectations possibles par candidat, le jeu des co-affectations fait que certains candidats sont avantagés par rapport à d'autres.
 
 En analysant les 20 premières questions sans corriger pour le nombre d'affectations (comme affiché sur le site du Monde), on obtient
 
