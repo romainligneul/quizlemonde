@@ -8,6 +8,6 @@ Le script lemonde_plot.m crée les figures.
 Par exemple, en analysant les 40 questions sans corriger pour le nombre d'affectations (comme affiché sur le site du Monde), on obtient
  ![ alt text for screen readers](/figures/figure_analyses_long_biais.png "Proportions").
  
-Le Monde peut se saisir de cet outil pour équilibrer leur questionnaire ou me contacter à romain.ligneul@gmail.com pour évaluer de nouvelles versions.
+Le Monde peut se saisir de cet outil pour équilibrer son questionnaire.
 
 Romain Ligneul, 1/4/22
