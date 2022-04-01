@@ -7,7 +7,7 @@ clear all
 % cet outil: https://data.page/json/csv
 % Puis il a été importé (à partir du fichier excel) dans matlab pour
 % produire ce fichier:
-quiz=importdata('quizlemonde.mat')
+quiz=importdata('sources/quizlemonde.mat')
 
 % spécifications de l'analyse
 nom_analyse='analyses';
