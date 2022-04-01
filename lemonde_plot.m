@@ -5,7 +5,7 @@ addpath('helper')
 analyse_source='analyses_court_correction';
 
 % charge l'analyse souhaitée
-load([analyse_source '.mat'])
+load(['analyses/' analyse_source '.mat'])
 
 % crée le dossier si besoin
 if exist('figures', 'dir')==0

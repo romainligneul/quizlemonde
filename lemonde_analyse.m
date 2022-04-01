@@ -10,6 +10,8 @@ clear all
 quiz=importdata('quizlemonde.mat')
 
 % spécifications de l'analyse
+nom_analyse='analyses';
+
 nquestions=20;
 nsimulations=10000;
 correction_nquestion=false;
@@ -66,8 +68,13 @@ for c=1:length(candidats)
     confidence_interval(c,:)=bootci(1000,@(x) mean(x), [rang(c,:)==1]');
 end
 
+% crée le dossier si besoin
+if exist('analyses', 'dir')==0
+    mkdir('analyses')
+end
+
 % sauvegarde les données
-save('analyses.mat')
+save(['analyses/' nom_analyse '.mat'])
 
 % fichiers présauvegardés
 % court = 20 questions: première partie du quiz
