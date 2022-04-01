@@ -6,7 +6,7 @@ Cette analyse peut se faire sur la base des 20 premières questions ou du quiz e
 Le script lemonde_plot.m crée les figures.
 
 En analysant les 40 questions sans corriger pour le nombre d'affectations (comme affiché sur le site du Monde), on obtient
- ![ alt text for screen readers](/figures/figure_analyses_long_biais.png =300x "Proportions").
+ ![ alt text for screen readers](/figures/figure_analyses_long_biais.png =100x20 "Proportions").
 
 En analysant les 20 premières questions sans corriger pour le nombre d'affectations (comme affiché sur le site du Monde), on obtient
  ![ alt text for screen readers](/figures/figure_analyses_court_biais.png "Proportions").
