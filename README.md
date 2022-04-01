@@ -18,7 +18,7 @@ En analysant les 20 premières questions et en corrigeant pour le nombre d'affec
  <img src="/figures/figure_analyses_court_correction_biais.png" width="600">
 
 On peut aussi calculer la similarité entre candidats en se basant sur le pourcentage d'affectations communes dans le quiz (ici pour 20 questions)
- <img src="/figures/figure_analyses_court_similarité.png" width="800">
+ <img src="/figures/figure_court_similarité.png" width="800">
 
 Le Monde peut se saisir de cet outil pour équilibrer son questionnaire.
 
