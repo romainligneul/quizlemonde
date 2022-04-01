@@ -7,7 +7,7 @@ Cette analyse peut se faire sur la base des 20 premières questions ou du quiz e
 Le script lemonde_plot.m crée les figures. Les barres d'erreur indiquent les intervalles de confiance à 95%.
 
 Le but de ces analyses est de montrer qu'aucune version du quiz n'est équilibrée. 
-Il y a deux facteurs en jeu. Premièrement, tous les candidats n'ont pas le même nombre d'affectations possibles, ce qui diminue mécaniquement le nombre de points qu'ils peuvent se voir attribuent. Deuxièmement, même lorsque l'on corrige pour le nombre d'affectations possibles par candidat, le jeu complexe des co-affectations fait que certains candidats sont avantagés par rapport à d'autres.
+Il y a deux facteurs en jeu. Premièrement, tous les candidats n'ont pas le même nombre d'affectations possibles, ce qui diminue mécaniquement le nombre de points qu'ils peuvent se voir attribuent. Deuxièmement, même lorsque l'on corrige pour le nombre d'affectations possibles par candidat (de manière à ce que chaque candidat reçoive en moyenne exactement le même nombre de points), le jeu complexe des co-affectations fait que certains candidats sont avantagés par rapport à d'autres.
 
 En analysant les 20 premières questions sans corriger pour le nombre d'affectations (comme affiché sur le site du Monde), on obtient
 
