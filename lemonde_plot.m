@@ -7,6 +7,11 @@ analyse_source='analyses_court_correction';
 % charge l'analyse souhaitée
 load([analyse_source '.mat'])
 
+% crée le dossier si besoin
+if exist('figures', 'dir')==0
+    mkdir('figures')
+end
+
 % plot biais
 f1=figure('name', 'bias', 'color', 'w', 'position',  [246   328   560   645] )
 % code couleur récupéré sur le site du monde
@@ -28,7 +33,7 @@ ylabel('premier ou copremier (%)')
 set(gca, 'xticklabel', candidats, 'fontsize', 14)
 box off
 camroll(-90)
-saveas(f1, ['figure_' analyse_source '_biais.png'])
+saveas(f1, ['figures/figure_' analyse_source '_biais.png'])
 
 % similarité
 f2=figure('color', 'w')
@@ -41,4 +46,4 @@ xticklabel_rotate([],45,[], 'fontsize', 14)
 title('pourcentage de co-affectations')
 colorbar
 set(gcf, 'position', [ 808   328   984   645])
-saveas(f2, ['figure_' analyse_source(10:end) '_similarité.png'])
+saveas(f2, ['figures/figure_' analyse_source(10:end) '_similarité.png'])
