@@ -1,5 +1,5 @@
 # Analyse du quiz proposé par Le Monde 
-A noter: dans le dossier source se trouvent également les quiz du Figaro, du Télégramme et du Parisien au format brut, extraits le 2/04, pour ceux que ça intéresserait de généraliser l'approche ci-dessous.
+A noter: dans le dossier "sources" se trouvent également les quiz du Figaro, du Télégramme et du Parisien au format brut, extraits le 2/04, pour ceux que ça intéresserait de généraliser l'approche ci-dessous.
 
 Version du quiz utilisée: https://www.lemonde.fr/les-decodeurs/article/2022/03/31/quiz-sur-la-presidentielle-2022-de-quel-candidat-etes-vous-le-plus-proche_6119971_4355770.html
 
