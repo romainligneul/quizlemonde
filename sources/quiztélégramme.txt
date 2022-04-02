@@ -1,0 +1,368 @@
+
+require(['jquery'], function($) {
+
+    var questions = [{
+            "theme": "International",
+            "question": "Quelle place pour la France dans l'OTAN ?",
+            "contexte" : "<span class='titre_contexte'>Contexte</span> : L'Organisation du traité de l'Atlantique nord est une alliance militaire défense qui repose sur un principe de solidarité entre les Etats membres : toute attaque armée contre l'un de ses membres sera considérée comme une attaque dirigée contre toutes les parties. Elle dispose d'une structure de commandement militaire intégré qui est, dans les textes, chargée de faciliter les opérations communes et l’interopérabilité des forces.",
+            choices:["Rester dans l'OTAN, mais éventuellement la réformer","Sortir du commandement militaire intégré de l'OTAN, mais rester dans l'institution","Sortir totalement de l'OTAN", "Aucune de ces propositions"],
+            reponses:[["Anne Hidalgo", "Emmanuel Macron", "Yannick Jadot", "Valérie Pécresse"],["Nicolas Dupont-Aignan", "Marine Le Pen", "Eric Zemmour"],["Fabien Roussel", "Jean-Luc Mélenchon", "Jean Lassalle", "Philippe Poutou"],["Aucun"]]
+        },{
+            "theme": "Institution",
+            "question": "Quelle durée pour le mandat du Président en France ?",
+            "contexte" : "",
+            choices:["Rester à 5 ans","Passer à 7 ans non-renouvelable","Passer à 7 ans mais avec la possibilité de révoquer le président à mi-mandat", "Passer par un référendum pour choisir entre 5 et 7 ans", "Convoquer une nouvelle Assemblée constituante, qui déterminera la durée du mandat", "Aucune de ces propositions"],
+            reponses:[["Anne Hidalgo"],["Yannick Jadot", "Marine Le Pen"],["Nicolas Dupont-Aignan"], ["Jean Lassalle"],["Jean-Luc Mélenchon"],["Aucun"]]
+        },{
+            "theme": "Institution",
+            "question": "Quelle place pour le référendum d'initiative citoyenne (RIC) ou populaire ?",
+            "contexte" : "<span class='titre_contexte'>Contexte</span> : A la différence du référendum législatif ou constituant à l'initiative du Président, c'est le peuple qui est à l'initiative du référendum d'initiative citoyenne. Certaines modalités (ex: nombre de signatures minimum à obtenir, seuil) peuvent être fixées pour limiter qu'un trop grand nombre de référendums soit à organiser.",
+            choices:["Mettre en place le RIC","Favoriser davantage le référendum à l'initiative du président","Mettre plutôt en place un 'Grand débat' permanent", "Aucune de ces propositions"],
+            reponses:[["Philippe Poutou", "Anne Hidalgo", "Jean-Luc Mélenchon", "Fabien Roussel", "Yannick Jadot", "Valérie Pécresse", "Jean Lassalle", "Nicolas Dupont-Aignan", "Marine Le Pen"],["Eric Zemmour"],["Emmanuel Macron"],["Aucun"]]
+        },{
+            "theme": "Institution",
+            "question": "Quel mode de scrutin pour les élections législatives ?",
+            "contexte" : "",
+            choices:["Conserver le système actuel, le scrutin majoritaire","Instaurer une dose de proportionnelle","Instaurer la proportionnelle intégrale", "Aucune de ces propositions"],
+            reponses:[["Valérie Pécresse"],["Anne Hidalgo", "Nicolas Dupont-Aignan", "Emmanuel Macron", "Eric Zemmour"],["Jean-Luc Mélenchon", "Fabien Roussel", "Yannick Jadot", "Marine Le Pen", "Philippe Poutou"],["Aucun"]]
+        },{
+            "theme": "Société",
+            "question": "Quel usage du cannabis ?",
+            "contexte" : "",
+            choices:["Légaliser le cannabis, en encadrant son usage et sa vente","Trancher cette question après un débat démocratique","Ne pas légaliser le cannabis", "Ne pas légaliser le cannabis et réprimer davantage sa consommation", "Aucune de ces propositions"],
+            reponses:[["Jean-Luc Mélenchon", "Yannick Jadot", "Nathalie Arthaud", "Jean Lassalle"],["Anne Hidalgo", "Fabien Roussel"],["Emmanuel Macron", "Nicolas Dupont-Aignan"], ["Eric Zemmour", "Marine Le Pen", "Valérie Pécresse"],["Aucun"]]
+        },{
+            "theme": "Société",
+            "question": "Quelle priorité pour lutter contre les violences faites aux femmes ?",
+            "contexte" : "",
+            choices:["Créer un ministère des droits des femmes", "Investir un milliard d'euros dans la lutte, comme demandé par les associations", "Créer plus d'hébergement d'urgence pour les femmes victimes de violences", "Créer un fichier des auteurs de violences conjugales", "Augmenter le montant de l'amende pour délit d'outrage sexiste", "Juger plus rapidement les auteurs de violences conjugales", "Automatiser les bracelets antirapprochements", "Aucune de ces propositions"],
+            reponses:[["Fabien Roussel", "Anne Hidalgo"], ["Jean-Luc Mélenchon", "Anne Hidalgo", "Yannick Jadot", "Fabien Roussel"], ["Nathalie Arthaud", "Yannick Jadot", "Valérie Pécresse"],["Emmanuel Macron"], ["Valérie Pécresse", "Nicolas Dupont-Aignan", "Marine Le Pen"], ["Emmanuel Macron", "Anne Hidalgo", "Valérie Pécresse"], ["Eric Zemmour"], ["Aucun"]]
+        },{
+            "theme": "Emploi",
+            "question": "Pour ou contre la réforme de l'assurance-chômage ?",
+            "contexte" : "<span class='titre_contexte'>Contexte</span> : Cette réforme, votée sour Emmanuel Macron, entend lutter contre le recours abusif aux contrats courts et faire en sorte que le travail paye plus que l’inactivité en établissant de nouvelles règles d'indemnisation qui incitent à la reprise de l'emploi. Mais elle est contestée par certains car elle se traduit, pour de nombreux allocataires, par une baisse de l'indemnisation.",
+            choices:["Maintenir la réforme de l'assurance-chômage", "Maintenir et même aller plus loin sur la réforme de l'assurance-chômage", "Abroger la réforme de l'assurance-chômage", "Aucune de ces propositions"],
+            reponses:[["Nicolas Dupont-Aignan"], ["Emmanuel Macron", "Valérie Pécresse"], ["Nathalie Arthaud", "Yannick Jadot", "Jean-Luc Mélenchon", "Anne Hidalgo", "Fabien Roussel"], ["Aucun"]]
+        },{
+            "theme": "Société",
+            "question": "Quelle priorité en matière de minima sociaux ?",
+            "contexte" : "",
+            choices:["Fixer un revenu minimum de 2 000 euros au moins", "Permettre que le revenu minimum mensuel atteigne le seuil de pauvreté (1 000 euros)", "Ouvrir le RSA aux moins de 25 ans", "Créer un revenu citoyen, à partir de 18 ans", "Conditionner le RSA à une activité", "Supprimer les minima sociaux pour les étrangers hors UE", "Aucune de ces propositions"],
+            reponses:[["Nathalie Arthaud"], ["Jean-Luc Mélenchon"], ["Fabien Roussel", "Jean Lassalle", "Anne Hidalgo"], ["Yannick Jadot"], ["Emmanuel Macron", "Valérie Pécresse", "Nicolas Dupont-Aignan"], ["Eric Zemmour"],["Aucun"]]
+        },{
+            "theme": "Santé",
+            "question": "Quelle priorité pour en finir avec les déserts médicaux ?",
+            "contexte" : "",
+            choices:["Ouvrir des établissements publics de santé à proximité", "Limiter le droit d'installation des médecins dans les zones médicales déjà bien pourvues", "Développer la télémédecine", "Ouvrir de nouvelles places en fac de médecine et/ou pousser pour que les jeunes médecins aillent dans les zones sous tension", "Permettre le renouvellement de certaines ordonnances par les pharmaciens", "Aucune de ces propositions"],
+            reponses:[["Nathalie Arthaud", "Jean-Luc Mélenchon", "Eric Zemmour"], ["Fabien Roussel", "Jean Lassalle", "Yannick Jadot"], ["Marine Le Pen", "Emmanuel Macron"], ["Anne Hidalgo", "Eric Zemmour", "Valérie Pécresse", "Marine Le Pen"], ["Emmanuel Macron"],["Aucun"]]
+        },{
+            "theme": "Santé",
+            "question": "Quelle priorité pour réformer le système de santé publique ?",
+            "contexte" : "",
+            choices:["Ouvrir au moins 10 000 lits dans les hôpitaux", "Rembourser 100% des soins prescrits", "Supprimer les ARS", "Supprimer la tarification à l'acte", "Recruter plus de soignants", "Aucune de ces propositions"],
+            reponses:[["Philippe Poutou", "Jean Lassalle"], ["Nathalie Arthaud", "Jean-Luc Mélenchon", "Fabien Roussel"], ["Marine Le Pen", "Eric Zemmour"], ["Yannick Jadot", "Nicolas Dupont-Aignan", "Jean-Luc Mélenchon"], ["Emmanuel Macron", "Nathalie Arthaud", "Philippe Poutou", "Jean Lassalle", "Eric Zemmour", "Marine Le Pen"], ["Aucun"]]
+        },{
+            "theme": "Emploi",
+            "question": "Quel âge pour le départ à la retraite ?",
+            "contexte" : "",
+            choices:["On a pas le choix : il faut reculer l'âge de départ, jusqu'à 64 ou 65 ans", "On peut maintenir l'âge de départ à 62 ans", "On a le choix : il faut même avancer l'âge de départ à 60 ans", "Aucune de ces propositions"],
+            reponses:[["Emmanuel Macron", "Valérie Pécresse", "Eric Zemmour"], ["Yannick Jadot", "Anne Hidalgo", "Jean Lassalle", "Nicolas Dupont-Aignan", "Marine Le Pen"], ["Nathalie Arthaud", "Philippe Poutou", "Jean-Luc Mélenchon", "Fabien Roussel"], ["Aucun"]]
+        },{
+            "theme": "Immigration",
+            "question": "Quelle politique en matière d'accueil des migrants et de titre de séjour ?",
+            "contexte" : "",
+            choices:["Instaurer la liberté de circulation des migrants", "Améliorer les conditions d'accueil des migrants", "Régulariser les personnes installées en France justifiant d'un travail, d'une vie familiale ou d'enfants scolarisés", "Durcir l'accès aux titres de séjour ou faire voter des quotas annuels d'immigration", "Interdire les régularisations d'étrangers en situation irrégulière et favoriser les expulsions", "Aucune de ces propositions"],
+            reponses:[["Nathalie Arthaud", "Philippe Poutou"], ["Jean-Luc Mélenchon", "Fabien Roussel"], ["Yannick Jadot", "Anne Hidalgo"], ["Emmanuel Macron", "Valérie Pécresse"], ["Marine Le Pen", "Nicolas Dupont-Aignan", "Eric Zemmour"], ["Aucun"]]
+        },{
+            "theme": "Education",
+            "question": "Quelle réforme du contenu de l'enseignement scolaire ?",
+            "contexte" : "",
+            choices:["Intégrer l'écologie dans les programmes", "Revenir à un bac avec des épreuves communes", "Confier l'élaboration des programmes scolaires à une autorité indépendante", "Réformer le lycée professionnel", "Créer un examen à l’entrée de la sixième", "Rétablir le certificat d'études à la fin du primaire", "Supprimer l’enseignement des langues et cultures d’origine", "Aucune de ces propositions"],
+            reponses:[["Jean-Luc Mélenchon"], ["Fabien Roussel"], ["Yannick Jadot", "Anne Hidalgo"], ["Emmanuel Macron"], ["Valérie Pécresse"], ["Eric Zemmour"], ["Marine Le Pen"], ["Aucun"]]
+        },{
+            "theme": "Agriculture",
+            "question": "Comment revoir le modèle agricole français ?",
+            "contexte" : "",
+            choices:["En modifiant la politique agricole commune", "En votant une loi d’orientation et de programmation agricole", "En incitant financièrement la transmission des exploitations agricoles", "En facilitant l'installation des jeunes agriculteurs", "En augmentant de 50 % l’exonération de taxe sur le foncier non bâti", "En laissant l'Etat intervenir sur les prix", "Aucune de ces propositions"],
+            reponses:[["Jean-Luc Mélenchon", "Jean Lassalle"], ["Fabien Roussel"], ["Yannick Jadot", "Emmanuel Macron"], ["Anne Hidalgo", "Eric Zemmour"], ["Valérie Pécresse"], ["Marine Le Pen"], ["Aucun"]]
+        },{
+            "theme": "Fonction publique",
+            "question": "Faut-il plus ou moins de fonctionnaires ?",
+            "contexte" : "",
+            choices:["Recruter plus de fonctionnaires pour les services publics", "Stabiliser le nombre de fonctionnaires", "Supprimer des postes de fonctionnaires", "Aucune de ces propositions"],
+            reponses:[["Philippe Poutou", "Jean-Luc Mélenchon", "Fabien Roussel", "Yannick Jadot", "Anne Hidalgo"], ["Nicolas Dupont-Aignan"], ["Valérie Pécresse"], ["Aucun"]]
+        },{
+            "theme": "Economie",
+            "question": "Quelle orientation pour l'impôt sur les grandes fortunes (ISF) ?",
+            "contexte" : "",
+            choices:["Rétablir l'ISF", "Mettre plutôt en place un impôt sur la fortune climatique", "Conserver l'ISF mais lancer une évaluation d'une exonération à 50 % de la résidence principale", "Exproprier les grandes fortunes", "Exonérer la résidence principale de l'impôt sur la fortune immobilière", "Remplacer l'impôt sur la fortune immobilière par un impôt sur la fortune financière", "Conserver la situation telle qu'elle est aujourd'hui", "Aucune de ces propositions"],
+            reponses:[["Philippe Poutou", "Jean-Luc Mélenchon", "Fabien Roussel", "Jean Lassalle", "Nicolas Dupont-Aignan"], ["Yannick Jadot", "Anne Hidalgo"], ["Valérie Pécresse"], ["Nathalie Arthaud"], ["Eric Zemmour"], ["Marine Le Pen"], ["Emmanuel Macron"], ["Aucun"]]
+        },{
+            "theme": "Energie",
+            "question": "Quelle place pour le nucléaire en France ?",
+            "contexte" : "",
+            choices:["Sortir du nucléaire de manière progressive", "Construire de nouveaux réacteurs nucléaires", "Aucune de ces propositions"],
+            reponses:[["Philippe Poutou", "Jean-Luc Mélenchon", "Yannick Jadot", "Anne Hidalgo"], ["Fabien Roussel", "Emmanuel Macron", "Valérie Pécresse", "Jean Lassalle", "Nicolas Dupont-Aignan", "Marine Le Pen", "Eric Zemmour"], ["Aucun"]]
+        },{
+            "theme": "Energie",
+            "question": "Quelle place pour l'éolien en France ?",
+            "contexte" : "",
+            choices:["Stopper l'éolien", "Continuer à développer tout type de projet éolien", "Développer l'éolien en mer mais limiter l'éolien sur terre", "Continuer l'éolien sur terre mais permettre aux habitants de refuser des projets", "Aucune de ces propositions"],
+            reponses:[["Marine Le Pen", "Jean Lassalle", "Nicolas Dupont-Aignan", "Eric Zemmour"], ["Philippe Poutou", "Yannick Jadot", "Anne Hidalgo"], ["Jean-Luc Mélenchon", "Emmanuel Macron"], ["Valérie Pécresse"], ["Aucun"]]
+        },{
+            "theme": "Sécurité",
+            "question": "Quelle mesure phare pour réformer le fonctionnement de la police ?",
+            "contexte" : "",
+            choices:["Supprimer la BAC", "Instaurer le récépissé de contrôle d’identité", "Remplacer l'IGPN et l'IGGN par un organisme indépendant", "Créer des brigades de gendarmerie", "Proposer un statut national des polices municipales", "Instaurer une présomption de légitime défense pour les policiers et les gendarmes", "Permettre aux forces de l'ordre de se défendre", "Aucune de ces propositions"],
+            reponses:[["Philippe Poutou", "Jean-Luc Mélenchon"], ["Fabien Roussel"], ["Yannick Jadot", "Anne Hidalgo"], ["Emmanuel Macron"], ["Valérie Pécresse"], ["Marine Le Pen"], ["Eric Zemmour"], ["Aucun"]]
+        },{
+            "theme": "Territoire",
+            "question": "Quel statut pour la Corse ?",
+            "contexte" : "",
+            choices:["Permettre l'autonomie", "Permettre l'autonomie, mais uniquement législative", "Instaurer l'autonomie mais que s'il y a des résultats", "Permettre l'autodétermination", "Aller plus loin que l'autonomie et accorder un statut similaire à celui de la Polynésie française", "Ne pas accorder l'autonomie", "Engager une discussion sur l'autonomie sans s'avancer davantage", "Aucune de ces propositions"],
+            reponses:[["Nathalie Arthaud"], ["Anne Hidalgo"], ["Valérie Pécresse"], ["Philippe Poutou"], ["Jean-Luc Mélenchon"], ["Fabien Roussel", "Marine Le Pen", "Eric Zemmour", "Nicolas Dupont-Aignan"], ["Emmanuel Macron"], ["Aucun"]]
+        },{
+            "theme": "Culture",
+            "question": "Quelle priorité pour la culture ?",
+            "contexte" : "",
+            choices:["Supprimer la redevance publique", "Privatiser l'audiovisuel public (et supprimer la redevance)", "Au contraire, il faut renforcer le service public audiovisuel", "Défendre les langues régionales", "Gratuité des musées le dimanche", "Etendre le pass culture", "Consacrer un milliard d'euros ou porter à 1 % du PIB le budget culturel de l'Etat", "Aucune de ces propositions"],
+            reponses:[["Emmanuel Macron", "Valérie Pécresse", "Marine Le Pen", "Eric Zemmour"], ["Marine Le Pen", "Eric Zemmour"], ["Fabien Roussel", "Anne Hidalgo"], ["Philippe Poutou"], ["Nicolas Dupont-Aignan"], ["Emmanuel Macron"], ["Yannick Jadot", "Jean-Luc Mélenchon"], ["Aucun"]]
+        }
+
+    ];
+
+    questions = shuffle(questions);
+
+    var currentQuestion = 0;
+    var reponses = [{
+        "Emmanuel Macron": 0,
+        "Marine Le Pen": 0,
+        "Jean-Luc Mélenchon": 0,
+        "Eric Zemmour": 0,
+        "Valérie Pécresse": 0,
+        "Yannick Jadot": 0,
+        "Fabien Roussel": 0,
+        "Anne Hidalgo": 0,
+        "Nicolas Dupont-Aignan": 0,
+        "Philippe Poutou": 0,
+        "Nathalie Arthaud": 0,
+        "Jean Lassalle": 0,
+        "Aucun":0
+    }];
+
+    function getSortedKeys(obj) {
+        var keys = []; for(var key in obj) keys.push(key);
+        return keys.sort(function(a,b){return obj[b]-obj[a]});
+    }
+
+    var quizOver = false;
+
+    if(!checkSharedURL()){
+        displayCurrentQuestion();
+        $(this).find(".quizMessage").hide();
+    }else{
+        reponses[0]["Emmanuel Macron"] = parseInt(getURL("em"));
+        reponses[0]["Marine Le Pen"] = parseInt(getURL("mlp"));
+        reponses[0]["Jean-Luc Mélenchon"] = parseInt(getURL("jlm"));
+        reponses[0]["Eric Zemmour"] = parseInt(getURL("ez"));
+        reponses[0]["Valérie Pécresse"] = parseInt(getURL("vp"));
+        reponses[0]["Yannick Jadot"] = parseInt(getURL("yj"));
+        reponses[0]["Anne Hidalgo"] = parseInt(getURL("ah"));
+        reponses[0]["Nicolas Dupont-Aignan"] = parseInt(getURL("nda"));
+        reponses[0]["Philippe Poutou"] = parseInt(getURL("pp"));
+        reponses[0]["Nathalie Arthaud"] = parseInt(getURL("na"));
+        reponses[0]["Jean Lassalle"] = parseInt(getURL("jl"));
+        reponses[0]["Fabien Roussel"] = parseInt(getURL("fr"));
+        reponses[0]["Aucun"] = parseInt(getURL("au"));
+        displayScore();
+        $(document).find(".nextButton").show()
+        $(".question,.contexte,.choiceList").hide();
+        $("#theme").text("RESULTATS");
+        $(".num_question").hide();
+        $(".numero_question").show();
+        $("#titre_categorie").show();
+        quizOver = true;
+    }
+
+    $("ol").on("click", ".answer", function () {
+
+        if (!quizOver) {
+
+            $(".question,.contexte,.choiceList").show();
+            $("#retry").hide();
+            $(".numero_question").show();
+            $("#titre_categorie").show();
+
+            value = $(this).text();
+
+            $(document).find(".quizMessage").hide();
+            var reponse = $.inArray(value, questions[currentQuestion].choices);
+            if (reponse >= 0) {
+
+               for(var i_r=0;i_r<questions[currentQuestion].reponses[reponse].length;i_r++){
+
+                    reponses[0][questions[currentQuestion].reponses[reponse][i_r]]++;
+           }
+            }
+
+            currentQuestion++;
+            if (currentQuestion < questions.length) {
+                displayCurrentQuestion();
+            } else {
+
+                displayScore();
+
+                $(document).find(".nextButton").show()
+                $(".question,.contexte,.choiceList").hide();
+                $("#theme").text("RESULTATS");
+                $(".num_question").hide();
+                quizOver = true;
+            }
+        } else {
+            quizOver = false;
+            resetQuiz();
+            displayCurrentQuestion();
+            hideScore();
+        }
+    });
+
+    $("#retry").on('click', function(){
+        quizOver = false;
+
+        resetQuiz();
+        displayCurrentQuestion();
+        hideScore();
+        $(".num_question").hide();
+        $(".numero_question").show();
+        $("#titre_categorie").show();
+        $(this).hide();
+    })
+
+    function displayCurrentQuestion() {
+
+        var theme = questions[currentQuestion].theme.toUpperCase();
+        var question = questions[currentQuestion].question;
+        var contexte = questions[currentQuestion].contexte;
+        var questionClass = $(document).find(".quiz-election > .question");
+        var contexteClass = $(document).find(".quiz-election > .contexte");
+        var choiceList = $(document).find(".quiz-election > .choiceList");
+        var numChoices = questions[currentQuestion].choices.length;
+
+        $("#num_question").html((currentQuestion + 1) + " / " + questions.length)
+
+        $("#theme").html(theme);
+
+        $(questionClass).html("<p>" + question + "</p>");
+        $(contexteClass).html("<p>" + contexte + "</p>");
+
+        $(choiceList).find("li").hide(500);
+        $(choiceList).find("li").remove();
+
+        var choice;
+        for (i = 0; i < numChoices; i++) {
+            choice = questions[currentQuestion].choices[i];
+            $(choiceList).append('<li class="clearfix"><span class="answer">' + choice + '</span></li>');
+        }
+        $(choiceList).find("li").show(1500);
+    }
+
+    function resetQuiz() {
+        currentQuestion = 0;
+        reponses = [{
+            "Emmanuel Macron": 0,
+            "Marine Le Pen": 0,
+            "Jean-Luc Mélenchon": 0,
+            "Eric Zemmour": 0,
+            "Valérie Pécresse": 0,
+            "Yannick Jadot": 0,
+            "Fabien Roussel": 0,
+            "Anne Hidalgo": 0,
+            "Nicolas Dupont-Aignan": 0,
+            "Philippe Poutou": 0,
+            "Nathalie Arthaud": 0,
+            "Jean Lassalle": 0,
+            "Aucun":0
+        }];
+
+         console.log(reponses)
+
+        $(".question,.contexte,.choiceList").show();
+
+        hideScore();
+    }
+
+    function displayScore() {        // A PARAMETRER
+        var order_res = getSortedKeys(reponses[0]);
+        console.log(order_res)
+        var html_add = "<p class='resultats-quiz'>Votre taux de compatibilité avec les candidats :</p><ul class='annonce'>";
+        for(var index = 0; index<order_res.length;index++){
+            html_add += "<li class='clearfix'>- " + order_res[index] + " (" + (reponses[0][order_res[index]]/questions.length*100).toFixed(0).replace('.', ',') + "&nbsp;%)<br><meter max='100' value='"+(reponses[0][order_res[index]]/questions.length*100)+"' style='width:90%;'></meter></li>";
+        }
+        html_add += "</ul>";
+        $(document).find(".quiz-election > .result").html(html_add);
+        $(document).find(".quiz-election > .result").show();
+        $("#retry").show();
+        $(".numero_question").hide();
+        $("#titre_categorie").hide();
+
+    }
+
+    function hideScore() {
+        $(document).find(".result").hide();
+    }
+
+    function shuffle(array) {
+      var currentIndex = array.length, temporaryValue, randomIndex;
+
+
+      while (0 !== currentIndex) {
+
+
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex -= 1;
+
+
+        temporaryValue = array[currentIndex];
+        array[currentIndex] = array[randomIndex];
+        array[randomIndex] = temporaryValue;
+      }
+
+      return array;
+    }
+
+    function SortArrayByKeys(inputarray) {
+      var arraykeys=[];
+      for(var k in inputarray) {arraykeys.push(k);}
+      arraykeys.sort();
+
+      var outputarray=[];
+      for(var i=0; i<arraykeys.length; i++) {
+          outputarray[arraykeys[i]]=inputarray[arraykeys[i]];
+      }
+      return outputarray;
+    }
+
+    function getURL(variable){
+
+        var query = window.location.search.substring(1);
+        var vars = query.split("&");
+
+        for (var i=0;i<vars.length;i++) {
+            var pair = vars[i].split("=");
+            if(pair[0] == variable)
+                return pair[1];
+        }
+
+        return("NaN");
+    }
+
+    function checkSharedURL(){
+
+        if(getURL("na")!="NaN" && getURL("pp")!="NaN" && getURL("jlm")!="NaN" && getURL("ez")!="NaN" && getURL("em")!="NaN" && getURL("fr")!="NaN" && getURL("nda")!="NaN" && getURL("mlp")!="NaN" && getURL("ah")!="NaN" && getURL("vp")!="NaN" && getURL("jl")!="NaN" && getURL("au")!="NaN")
+
+            return getURL("na")>=0 && getURL("pp")>=0 && getURL("jlm")>=0 && getURL("ez")>=0 && getURL("em")>=0 && getURL("fr")>=0 && getURL("nda")>=0 && getURL("mlp")>=0 && getURL("ah")>=0 && getURL("vp")>=0 && getURL("jl")>=0 && getURL("au")>=0;
+        else
+            return false;
+    }
+
+});

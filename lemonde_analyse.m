@@ -14,7 +14,7 @@ nom_analyse='analyses';
 
 nquestions=20;
 nsimulations=10000;
-correction_nquestion=false;
+correction_nquestion=true;
 candidats={'Arthaud', 'Poutou','Roussel', 'Mélenchon', 'Jadot', 'Hidalgo', 'Macron', 'Pécresse', 'Lassalle', 'Dupont-Aignan', 'Le Pen', 'Zemmour'};
 
 % prétraitement du quiz pour obtenir les affectations par candidat et par
